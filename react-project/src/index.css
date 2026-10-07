@@ -1,0 +1,204 @@
+/* ==========================================================================
+   CineTalk 글로벌 테마 — 다크 시네마
+   기존 Vite 기본 라이트 테마/고정폭(index.css)을 폐기하고 다크 테마로 재정립.
+   컴포넌트 CSS는 var(--gold)/var(--primary) 등을 참조하므로 여기서 변수 정의.
+   ========================================================================== */
+
+:root {
+  /* 배경/표면 */
+  --bg: #0f0f0f;
+  --bg-elevated: #181818;
+  --card: #1f1f1f;
+  --card-hover: #262626;
+
+  /* 브랜드/포인트 */
+  --primary: #d62828;
+  --primary-light: #ff5a5a;
+  --gold: #f5c518;
+
+  /* 텍스트 */
+  --text-h: #ffffff;
+  --text: #d8d8d8;
+  --text-muted: #8a8a8a;
+  /* 레거시 별칭 (기존 var(--muted) 참조 호환) */
+  --muted: var(--text-muted);
+
+  /* 라인 */
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* 버튼 */
+  --btn-radius: 999px;
+  --btn-primary: var(--primary);
+  --btn-primary-hover: var(--primary-light);
+  --btn-secondary: #2c2c2c;
+  --btn-secondary-hover: #3a3a3a;
+
+  /* 폰트 */
+  --sans: "Pretendard", system-ui, "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    sans-serif;
+
+  color-scheme: dark;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+
+  /* 전역 폰트 크기 (모바일에서 한 단계 축소) */
+  font-size: 16px;
+  @media (max-width: 1000px) {
+    font-size: 15px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 루트 — 고정폭 제거, 전체 폭 사용 */
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  text-align: left;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  color: var(--text-h);
+  margin: 0;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   공통 버튼 (글로벌) — 모든 모달/페이지에서 동일하게 적용.
+   각 컴포넌트 CSS에 .btn 중복 정의 금지 → 여기서 단일 관리.
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--btn-radius);
+  background: var(--btn-primary);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, filter 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--btn-primary-hover);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* 보조 버튼 (취소 등) */
+.btn-secondary {
+  background: var(--btn-secondary);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--btn-secondary-hover);
+}
+
+/* 라인형 취소 버튼 */
+.btn-cancel {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+/* 인라인 링크형 버튼 (모달 전환 등) */
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-btn:hover {
+  color: var(--primary-light);
+}
+
+/* 다크 스크롤바 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}

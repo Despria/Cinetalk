@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Alert.css
+   Alert Modal 공통 스타일
+   ========================================================================== */
+
+/* ==========================================================================
+   ALERT PANEL
+   ========================================================================== */
+
+.alert-panel {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 48px 40px;
+}
+
+/* ==========================================================================
+   ALERT ICON
+   ========================================================================== */
+
+.alert-icon-success,
+.alert-icon-error,
+.alert-icon-warning,
+.alert-icon-info {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 28px;
+
+  font-size: 2.6rem;
+
+  color: white;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   SUCCESS
+   ========================================================================== */
+
+.alert-icon-success {
+  background: linear-gradient(135deg, #39d98a, #22a861);
+}
+
+/* ==========================================================================
+   ERROR
+   ========================================================================== */
+
+.alert-icon-error {
+  background: linear-gradient(135deg, #ff4d4d, #d62828);
+}
+
+/* ==========================================================================
+   WARNING
+   ========================================================================== */
+
+.alert-icon-warning {
+  background: linear-gradient(135deg, #f7b731, #f0932b);
+}
+
+/* ==========================================================================
+   INFO
+   ========================================================================== */
+
+.alert-icon-info {
+  background: linear-gradient(135deg, #4ea8ff, #3578e5);
+}
+
+/* ==========================================================================
+   TITLE
+   ========================================================================== */
+
+.alert-title {
+  margin-bottom: 16px;
+
+  font-size: 1.8rem;
+
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   DESCRIPTION
+   ========================================================================== */
+
+.alert-desc {
+  max-width: 420px;
+
+  color: #cfcfcf;
+
+  line-height: 1.8;
+
+  font-size: 0.98rem;
+}
+
+/* ==========================================================================
+   BUTTON AREA
+   ========================================================================== */
+
+.alert-actions {
+  width: 100%;
+
+  margin-top: 36px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.alert-actions .btn {
+  min-width: 160px;
+}
+
+/* ==========================================================================
+   ANIMATION
+   ========================================================================== */
+
+.alert-panel > * {
+  animation: alertFade 0.35s ease;
+}
+
+@keyframes alertFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .alert-panel {
+    padding: 36px 24px;
+  }
+
+  .alert-icon-success,
+  .alert-icon-error,
+  .alert-icon-warning,
+  .alert-icon-info {
+    width: 72px;
+    height: 72px;
+
+    font-size: 2rem;
+
+    margin-bottom: 22px;
+  }
+
+  .alert-title {
+    font-size: 1.5rem;
+  }
+
+  .alert-desc {
+    font-size: 0.92rem;
+  }
+
+  .alert-actions {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .alert-actions .btn {
+    width: 100%;
+
+    min-width: 0;
+  }
+}

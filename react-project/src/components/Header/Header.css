@@ -1,0 +1,167 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  /* 불투명에 가깝게 → 스크롤 시 카드/배경이 비쳐 메뉴가 가려지는 현상 방지 */
+  background: rgba(15, 15, 15, 0.98);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+  width: min(1400px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  height: 72px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+
+  font-weight: 800;
+
+  color: white;
+
+  text-decoration: none;
+}
+
+.header-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+}
+
+.header-nav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.header-nav-link {
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  color: var(--text-muted);
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.header-nav-link:hover {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.header-nav-link.active {
+  color: #fff;
+
+  background: rgba(214, 40, 40, 0.2);
+}
+
+.header-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.header-nickname {
+  color: var(--gold);
+
+  font-weight: 600;
+}
+
+.user-navigation {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.user-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.status-dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+}
+
+.user-profile.guest .status-dot {
+  background: #888;
+}
+
+#userStatusText {
+  font-size: 0.95rem;
+
+  color: #d6d6d6;
+}
+
+@media (max-width: 1000px) {
+  .header-container {
+    width: calc(100% - 32px);
+
+    height: 64px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .header-brand {
+    gap: 16px;
+  }
+
+  .header-nav {
+    gap: 2px;
+  }
+
+  .header-nav-link {
+    padding: 6px 10px;
+    font-size: 0.88rem;
+  }
+
+  #userStatusText {
+    display: none;
+  }
+}

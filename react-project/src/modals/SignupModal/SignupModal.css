@@ -1,0 +1,10 @@
+/* SignupModal.css
+   form-* / interactive-control 클래스는 공용 Form.css(수정 없이 그대로 import).
+   .btn / .btn-secondary / .link-btn 은 글로벌(index.css)에서 단일 관리. */
+
+.signup-switch {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

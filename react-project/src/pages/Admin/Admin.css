@@ -1,0 +1,203 @@
+.admin-page {
+  width: min(1100px, calc(100% - 48px));
+  margin: 60px auto 80px;
+}
+
+.admin-header {
+  margin-bottom: 32px;
+}
+
+.admin-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.admin-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.admin-error {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.admin-loading {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 60px 0;
+}
+
+/* ==========================================================================
+   User Table
+   ========================================================================== */
+
+.admin-table {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: 60px 1.4fr 1.6fr 100px 120px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-row:last-child {
+  border-bottom: none;
+}
+
+.admin-row-head {
+  background: rgba(255, 255, 255, 0.03);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.col-nick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.admin-self-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(245, 197, 24, 0.15);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.col-login {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-auth {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.col-auth.is-admin {
+  color: var(--primary-light);
+}
+
+/* ==========================================================================
+   Toggle Button
+   ========================================================================== */
+
+.admin-toggle-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.admin-toggle-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.admin-toggle-btn.grant {
+  color: var(--gold);
+  border-color: rgba(245, 197, 24, 0.5);
+  background: rgba(245, 197, 24, 0.1);
+}
+
+.admin-toggle-btn.grant:hover:not(:disabled) {
+  background: rgba(245, 197, 24, 0.18);
+}
+
+.admin-toggle-btn.revoke {
+  color: var(--primary-light);
+  border-color: rgba(214, 40, 40, 0.5);
+  background: rgba(214, 40, 40, 0.1);
+}
+
+.admin-toggle-btn.revoke:hover:not(:disabled) {
+  background: rgba(214, 40, 40, 0.18);
+}
+
+.admin-toggle-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.admin-locked {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .admin-page {
+    width: calc(100% - 32px);
+    margin: 40px auto 60px;
+  }
+
+  .admin-title {
+    font-size: 1.6rem;
+  }
+
+  .admin-row {
+    grid-template-columns: 40px 1fr 90px;
+    grid-template-areas:
+      "id nick auth"
+      "id login action";
+    row-gap: 8px;
+    padding: 16px 18px;
+  }
+
+  .admin-row-head {
+    display: none;
+  }
+
+  .col-id {
+    grid-area: id;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .col-nick {
+    grid-area: nick;
+  }
+
+  .col-login {
+    grid-area: login;
+  }
+
+  .col-auth {
+    grid-area: auth;
+    justify-self: end;
+  }
+
+  .col-action {
+    grid-area: action;
+    justify-self: end;
+  }
+}

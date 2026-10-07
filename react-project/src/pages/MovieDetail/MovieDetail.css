@@ -1,0 +1,313 @@
+/* ==========================================================================
+   MovieDetailModal
+   ========================================================================== */
+
+/* ==========================================================================
+   DETAIL LAYOUT
+   ========================================================================== */
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns: 420px 1fr;
+}
+
+/* ==========================================================================
+   LEFT PANEL
+   ========================================================================== */
+
+.detail-left-panel {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+/* ==========================================================================
+   POSTER
+   ========================================================================== */
+
+.detail-panel-artwork {
+  position: absolute;
+
+  inset: 0;
+
+  background-position: center;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  transition: transform 0.6s ease;
+}
+
+.detail-left-panel:hover .detail-panel-artwork {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   POSTER GRADIENT
+   ========================================================================== */
+
+.detail-panel-gradient {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* ==========================================================================
+   MOVIE META
+   ========================================================================== */
+
+.detail-panel-meta {
+  position: absolute;
+
+  left: 32px;
+  right: 32px;
+  bottom: 34px;
+
+  z-index: 5;
+}
+
+/* ==========================================================================
+   GENRE
+   ========================================================================== */
+
+.detail-genre {
+  display: inline-flex;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(214, 40, 40, 0.9);
+
+  color: white;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   TITLE
+   ========================================================================== */
+
+.detail-main-title {
+  font-size: 2.3rem;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   SPECS
+   ========================================================================== */
+
+.detail-specs {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ddd;
+
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   RIGHT PANEL
+   ========================================================================== */
+
+.detail-right-panel {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  /* grid item이자 flex 컨테이너 — min-height:0 명시로
+     리뷰가 많아도 부모 grid 높이 안에서만 스크롤(포스터 비율 보존). */
+  min-height: 0;
+
+  padding: 40px;
+
+  background: linear-gradient(180deg, #222, #181818);
+}
+
+.detail-right-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   INFO BLOCK
+   ========================================================================== */
+
+.info-block {
+  margin-bottom: 36px;
+}
+
+/* ==========================================================================
+   SLOGAN
+   ========================================================================== */
+
+.movie-slogan {
+  color: var(--gold);
+
+  font-size: 1.45rem;
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   PLOT
+   ========================================================================== */
+
+.movie-plot {
+  color: #d8d8d8;
+
+  line-height: 1.9;
+
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   REVIEW SECTION
+   ========================================================================== */
+
+.reviews-section {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  min-height: 0;
+}
+
+/* ==========================================================================
+   REVIEW HEADER
+   ========================================================================== */
+
+.reviews-header-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 22px;
+}
+
+.reviews-title-text {
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+#detailReviewCount {
+  color: var(--primary-light);
+}
+
+.reviews-header-row .btn {
+  min-width: 120px;
+}
+
+.reviews-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* 모달 내부: grid를 가용 높이(88vh에서 모달 창 상하 패딩 72px 제외)로 고정.
+   → 상/하 패딩이 대칭으로 남아 포스터·리뷰가 하단에 치우치지 않고
+   좌/우 패널 높이가 일치하며, 우측 패널만 스크롤. */
+.movie-detail--in-modal .detail-grid {
+  height: calc(88vh - 72px);
+  max-height: calc(88vh - 72px);
+}
+
+.movie-detail--in-modal .detail-right-panel {
+  overflow-y: auto;
+}
+
+@media (max-width: 1000px) {
+  /* 모바일: 1컬럼. 모달 창 자체가 스크롤을 담당하도록
+     grid의 고정 높이를 해제하고 우측 패널의 독립 스크롤을 끔.
+     → 포스터 → 정보 → 리뷰가 한 줄로 이어져 끝까지 스크롤로 확인 가능. */
+  .movie-detail--in-modal .detail-grid {
+    max-height: none;
+  }
+
+  .movie-detail--in-modal .detail-right-panel {
+    overflow: visible;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-left-panel {
+    min-height: 360px;
+  }
+
+  .detail-right-panel {
+    padding: 28px;
+  }
+
+  .detail-panel-meta {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .detail-main-title {
+    font-size: 1.9rem;
+  }
+
+  .movie-slogan {
+    font-size: 1.2rem;
+  }
+
+  .reviews-header-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .reviews-header-actions {
+    width: 100%;
+  }
+
+  .reviews-header-actions .btn {
+    flex: 1;
+  }
+}

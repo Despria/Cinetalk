@@ -1,0 +1,320 @@
+/* ============================================================
+   플로팅 AI 채팅 위젯 (우측 하단)
+   - 다크 시네마 테마 토큰(index.css :root) 재사용
+   - z-index 1500: 헤더(1000) 위, 모달(5000) 아래 → 모달이 열리면 채팅이 가려짐
+   ============================================================ */
+
+/* ---- 동그란 플로팅 버튼 (FAB) ---- */
+.chat-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  z-index: 1500;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chat-fab:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 20px 40px rgba(214, 40, 40, 0.35);
+}
+
+.chat-fab:active {
+  transform: scale(0.95);
+}
+
+/* ---- 채팅 팝업 패널 ---- */
+.chat-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 96px; /* FAB(56px) + 간격 */
+  width: 380px;
+  height: min(520px, calc(100vh - 130px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #1a1a1a; /* 모달 창과 동일한 표면색 */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  z-index: 1500;
+  animation: chatShow 0.25s ease;
+}
+
+@keyframes chatShow {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---- 헤더 ---- */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+
+.chat-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-header-title h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: 0.02em;
+}
+
+/* 온라인 표시 점 */
+.chat-online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #39d98a;
+  box-shadow: 0 0 8px rgba(57, 217, 138, 0.6);
+}
+
+.chat-close-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.25s ease;
+}
+
+.chat-close-button:hover {
+  background: var(--primary);
+  transform: rotate(90deg);
+}
+
+/* ---- 메시지 목록 ---- */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 14px;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-msg {
+  display: flex;
+  animation: chatMsgFade 0.3s ease;
+}
+
+@keyframes chatMsgFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 사용자 말풍선: 우측 정렬 / 시네마 레드 */
+.chat-msg.user {
+  justify-content: flex-end;
+}
+
+.chat-msg.user .chat-bubble {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 16px 16px 4px 16px;
+}
+
+/* AI 말풍선: 좌측 정렬 / 어두운 카드색 */
+.chat-msg.assistant {
+  justify-content: flex-start;
+}
+
+.chat-msg.assistant .chat-bubble {
+  background: var(--card-hover);
+  color: var(--text);
+  border-radius: 16px 16px 16px 4px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  white-space: pre-wrap; /* 줄바꿈 보존 */
+  word-break: break-word; /* 텍스트가 컨테이너를 벗어나지 않게 */
+}
+
+/* ---- 타이핑 인디케이터 (점 3개) ---- */
+.chat-typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.chat-typing .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: chatDotBounce 1.2s infinite ease-in-out;
+}
+
+.chat-typing .dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chat-typing .dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes chatDotBounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+/* ---- 입력창 행 ---- */
+.chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #252525;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  max-height: 96px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+.chat-input:focus {
+  outline: none;
+  background: #2c2c2c;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(214, 40, 40, 0.15);
+}
+
+.chat-input:disabled {
+  opacity: 0.55;
+}
+
+/* 전송 버튼 (전역 .btn 재정의 대신 독립 클래스 — 아이콘 버튼이라 정사각 스타일) */
+.chat-send-button {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.chat-send-button:hover:not(:disabled) {
+  background: var(--primary-light);
+  transform: scale(1.08);
+}
+
+.chat-send-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.chat-send-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ---- 모바일 (기존 앱 브레이크포인트와 동일) ---- */
+@media (max-width: 1000px) {
+  .chat-fab {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .chat-panel {
+    left: 16px;
+    right: 16px;
+    bottom: 84px;
+    width: auto;
+    height: min(70vh, 520px);
+    border-radius: 18px;
+  }
+}

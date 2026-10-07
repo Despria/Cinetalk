@@ -1,0 +1,109 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+  background: var(--card-hover);
+}
+
+.movie-card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card-body {
+  padding: 16px 18px 8px;
+  flex: 1;
+}
+
+.movie-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  /* 제목 길어질 때 말줄임 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.movie-card-rating {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.movie-card-genre {
+  color: var(--text-muted);
+}
+
+/* 좋아요 / 찜 액션바 */
+.movie-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 16px;
+}
+
+.like-btn,
+.fav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.like-btn:hover,
+.fav-btn:hover {
+  transform: scale(1.08);
+}
+
+.like-btn .like-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* 눌린 상태 */
+.like-btn.active {
+  color: var(--primary-light);
+  border-color: rgba(214, 40, 40, 0.5);
+  background: rgba(214, 40, 40, 0.12);
+}
+
+.fav-btn.active {
+  color: var(--gold);
+  border-color: rgba(245, 197, 24, 0.5);
+  background: rgba(245, 197, 24, 0.12);
+}

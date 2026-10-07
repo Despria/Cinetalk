@@ -1,0 +1,121 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  z-index: 5000;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal-window {
+  position: relative;
+  width: min(1200px, 100%);
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  animation: modalShow 0.35s ease;
+  /* 좌우 대칭 여백 (우측은 닫기 버튼 영역까지 고려해 충분히) */
+  padding: 36px 36px;
+}
+
+/* small(알림/로그인/회원가입)은 내용이 단순 → 여백 축소 */
+.modal-small {
+  width: min(520px, 95vw);
+  padding: 32px 32px;
+}
+
+.modal-medium {
+  width: min(720px, 96vw);
+  padding: 36px 36px;
+}
+.modal-large {
+  width: min(1200px, 100%);
+}
+.modal-fullscreen {
+  width: min(1600px, 100%);
+  height: 95vh;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.25s ease;
+  z-index: 100;
+}
+
+.modal-close-button:hover {
+  background: var(--primary);
+  transform: rotate(90deg);
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal-overlay {
+    padding: max(24px, env(safe-area-inset-top));
+  }
+
+  .modal-window {
+    width: 100%;
+    max-width: none;
+    max-height: 95vh;
+    border-radius: 18px;
+    padding: 28px 22px;
+  }
+  .modal-small {
+    width: min(420px, 100%);
+  }
+  .modal-medium {
+    width: min(700px, 100%);
+  }
+  .modal-large {
+    width: 100%;
+  }
+
+  /* 모바일에서 large 모달(영화 상세)은 모달 창 자체가 스크롤을 담당.
+     내부 detail-grid/우측 패널은 max-height/overflow를 해제했으므로
+     창이 전체 높이를 표현하고 overflow-y로 끝까지 스크롤. */
+  .modal-large {
+    overflow-y: auto;
+  }
+
+  .modal-close-button {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+}

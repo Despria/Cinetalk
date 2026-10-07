@@ -1,0 +1,28 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.log
+*.pid
+*.port
+*.tsbuildinfo
+.plan.md
+
+# 대화 내보내기(export) 백업
+*-cors-vite-dev-proxy-*.txt
+2026-*-export*.txt
+2026-*-this-session-is-being-continued-from-a-previous-c.txt
+
+# 작업 계획 메모 (AI 세션용)
+.plan-modifications.md
+.plan.md
+
+# 포스터 업로드 임시 파일
+public/posters/.tmp-*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+.claude/

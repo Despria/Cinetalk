@@ -1,0 +1,4 @@
+/* LoginResultModal.css
+   alert-panel / alert-icon-* / alert-title / alert-desc / alert-actions 는
+   공용 Alert.css 에서 처리. .btn 은 글로벌(index.css)에서 단일 관리하므로
+   여기서는 별도 버튼 스타일 없음. */

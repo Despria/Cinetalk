@@ -1,0 +1,98 @@
+/* ==========================================================================
+   MovieForm — 영화 등록/수정/삭제 페이지
+   ========================================================================== */
+
+.movie-form-page {
+  width: min(820px, calc(100% - 48px));
+  margin: 48px auto 80px;
+}
+
+.movie-form-page .form-header {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.movie-form-page .form-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-h);
+}
+
+.movie-form-page .form-subtitle {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.movie-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.movie-form-page .form-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 28px;
+}
+
+.movie-form-page .form-group.full {
+  grid-column: 1 / -1;
+}
+
+.movie-form-page .form-footer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 삭제 버튼 — 빨강 톤 */
+.btn-delete {
+  color: var(--primary-light);
+}
+
+.rating-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating-input input {
+  flex: 1;
+}
+
+.rating-input .rating-hint {
+  color: var(--text-muted);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1000px) {
+  .movie-form-page {
+    width: calc(100% - 32px);
+    margin: 28px auto 60px;
+  }
+
+  .movie-form-card {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .movie-form-page .form-body {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .movie-form-page .form-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .movie-form-page .form-footer .btn {
+    width: 100%;
+  }
+}

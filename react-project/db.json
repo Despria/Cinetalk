@@ -1,0 +1,316 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "인터스텔라",
+      "poster": "posters/interstellar.jpg",
+      "genre": "SF",
+      "director": "크리스토퍼 놀란",
+      "actors": "매튜 맥커너히, 앤 해서웨이, 제시카 채스테인",
+      "releaseDate": "2014-11-06",
+      "runningTime": 169,
+      "rating": 4.8,
+      "slogan": "우리는 항상 위를 바라보았다. 그리고 그곳에 우리의 미래가 있다.",
+      "plot": "식량 위기에 처한 지구를 살리기 위해 우주 너머로 떠난 탐사대의 이야기. 웜홀을 통과해 새로운 거주 가능 행성을 찾아 나선다."
+    },
+    {
+      "id": 2,
+      "title": "듄",
+      "poster": "posters/dune.jpg",
+      "genre": "SF",
+      "director": "드니 빌뇌브",
+      "actors": "티모시 샬라메, 레베카 퍼거슨, 젠데이아",
+      "releaseDate": "2021-10-21",
+      "runningTime": 155,
+      "rating": 4.8,
+      "slogan": "예언은 시작되었다.",
+      "plot": "우주에서 가장 귀한 자원 스파이스를 둘러싼 아라키스 행성의 권력 다툼 속, 폴 아트레이데스의 운명이 시작된다."
+    },
+    {
+      "id": 3,
+      "title": "마션",
+      "poster": "posters/martian.jpg",
+      "genre": "SF",
+      "director": "리들리 스콧",
+      "actors": "맷 데이먼, 제시카 채스테인, 크리스틴 위그",
+      "releaseDate": "2015-10-08",
+      "runningTime": 144,
+      "rating": 4.5,
+      "slogan": "집으로 돌아가겠다.",
+      "plot": "화성 임무 도중 사고로 홀로 남겨진 우주비행사 마크 와트니가 과학과 유머로 생존을 시도한다."
+    },
+    {
+      "id": 4,
+      "title": "덩케르크",
+      "poster": "posters/dunkirk.jpg",
+      "genre": "전쟁",
+      "director": "크리스토퍼 놀란",
+      "actors": "핀 화이트헤드, 톰 하디, 마크 라이런스",
+      "releaseDate": "2017-07-20",
+      "runningTime": 106,
+      "rating": 4.4,
+      "slogan": "생존이 곧 승리다.",
+      "plot": "제2차 세계대전 덩케르크 해변에 고립된 연합군을 구출하기 위한 육·해·공의 3개 시점이 교차한다."
+    },
+    {
+      "id": 5,
+      "title": "쇼생크 탈출",
+      "poster": "posters/shawshank_redemption.jpg",
+      "genre": "드라마",
+      "director": "프랭크 다라본트",
+      "actors": "팀 로빈스, 모건 프리먼",
+      "releaseDate": "1995-01-28",
+      "runningTime": 142,
+      "rating": 4.9,
+      "slogan": "두려움은 너를 죄수로 가두고, 희망은 너를 자유롭게 한다.",
+      "plot": "억울한 누명을 쓰고 종신형을 선고받은 앤디가 쇼생크 감옥에서 펼치는 인내와 희망의 이야기."
+    },
+    {
+      "id": 6,
+      "title": "행복을 찾아서",
+      "poster": "posters/pursuit_of_happiness.webp",
+      "genre": "드라마",
+      "director": "가브리엘 무치노",
+      "actors": "윌 스미스, 제이든 스미스",
+      "releaseDate": "2006-12-07",
+      "runningTime": 117,
+      "rating": 4.5,
+      "slogan": "절대 포기하지 마라.",
+      "plot": "파산과 노숙의 위기를 겪으면서도 아들과 함께 꿈을 포기하지 않는 크리스 가드너의 실화."
+    },
+    {
+      "title": "오리엔트 특급 살인",
+      "poster": "posters/poster-1784789762262-597181.webp",
+      "genre": "추리",
+      "director": "마이클 그린",
+      "actors": "케네스 브레너, 페넬로페 크루즈, 윌렘 대포, 주디 덴치, 조니 뎁",
+      "releaseDate": "2017-11-29",
+      "runningTime": 114,
+      "rating": 4,
+      "slogan": "13명의 완벽한 알리바이. 모두가 용의자다.",
+      "plot": "세계적 명탐정 '에르큘 포와로’는 사건 의뢰를 받고 이스탄불에서 런던으로 향하는 초호화 열차인 오리엔트 특급열차에 탑승한다.\n\n폭설로 열차가 멈춰선 밤, 승객 한 명이 잔인하게 살해당하는 사건이 발생하게 된다.\n기차 안에서 벌어진 밀실 살인, 완벽한 알리바이를 가진 13명의 용의자.\n포와로는 현장에 남겨진 단서와 용의자들의 증언을 토대로 미궁에 빠진 사건 속 진실을 찾기 위한 추리를 시작하는데…",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "loginId": "cinephile",
+      "password": "1234",
+      "nickname": "영화광",
+      "authority": false
+    },
+    {
+      "id": 2,
+      "loginId": "scifan",
+      "password": "1234",
+      "nickname": "SF덕후",
+      "authority": false
+    },
+    {
+      "id": 3,
+      "loginId": "dreamer",
+      "password": "1234",
+      "nickname": "꿈꾸는자",
+      "authority": false
+    },
+    {
+      "id": 4,
+      "loginId": "critic",
+      "password": "1234",
+      "nickname": "평론가",
+      "authority": false
+    },
+    {
+      "loginId": "kopo10",
+      "password": "1234",
+      "nickname": "wnsduf",
+      "id": 5,
+      "authority": true
+    },
+    {
+      "loginId": "test",
+      "password": "test",
+      "nickname": "test",
+      "id": 6,
+      "authority": false
+    },
+    {
+      "loginId": "admin",
+      "password": "admin1234",
+      "nickname": "관리자",
+      "authority": true,
+      "id": 7
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "userId": 1,
+      "rating": 5,
+      "content": "시간과 사랑에 대한 묵직한 여운. 마지막 씬에서 눈물이 났습니다.",
+      "createdAt": "2025-01-10T14:30:00"
+    },
+    {
+      "id": 2,
+      "movieId": 1,
+      "userId": 2,
+      "rating": 5,
+      "content": "과학 고증과 스케일 모두 압도적. 여러 번 봐도 질리지 않아요.",
+      "createdAt": "2025-01-12T09:15:00"
+    },
+    {
+      "id": 3,
+      "movieId": 1,
+      "userId": 4,
+      "rating": 4,
+      "content": "음악이 영화의 절반을 차지합니다. 짐머의 사운드트랙 최고.",
+      "createdAt": "2025-01-15T20:00:00"
+    },
+    {
+      "id": 4,
+      "movieId": 2,
+      "userId": 2,
+      "rating": 5,
+      "content": "압도적인 비주얼과 사운드. 스크린에서 보길 잘했다.",
+      "createdAt": "2025-02-01T11:00:00"
+    },
+    {
+      "id": 5,
+      "movieId": 2,
+      "userId": 3,
+      "rating": 4,
+      "content": "세계관이 방대해서 원작을 먼저 읽으면 더 좋을 듯합니다.",
+      "createdAt": "2025-02-03T16:45:00"
+    },
+    {
+      "id": 6,
+      "movieId": 3,
+      "userId": 1,
+      "rating": 5,
+      "content": "과학적 고증이 흥미롭고 주인공의 긍정성에 위로를 받았어요.",
+      "createdAt": "2025-02-10T13:20:00"
+    },
+    {
+      "id": 7,
+      "movieId": 3,
+      "userId": 4,
+      "rating": 4,
+      "content": "감동과 유머가 적절히 섞인 훌륭한 생존 드라마.",
+      "createdAt": "2025-02-12T10:10:00"
+    },
+    {
+      "id": 8,
+      "movieId": 4,
+      "userId": 2,
+      "rating": 4,
+      "content": "긴장감 넘치는 연출. 시간이 역순으로 교차하는 게 인상적.",
+      "createdAt": "2025-02-20T18:30:00"
+    },
+    {
+      "id": 9,
+      "movieId": 4,
+      "userId": 3,
+      "rating": 5,
+      "content": "전쟁의 참혹함과 인간의 연대를 동시에 보여주는 명작.",
+      "createdAt": "2025-02-22T09:00:00"
+    },
+    {
+      "id": 10,
+      "movieId": 5,
+      "userId": 1,
+      "rating": 5,
+      "content": "희망이란 무엇인지 다시 생각하게 만드는 영화.",
+      "createdAt": "2025-03-01T15:50:00"
+    },
+    {
+      "id": 11,
+      "movieId": 5,
+      "userId": 3,
+      "rating": 5,
+      "content": "수없이 봐도 마지막 장면은 해방감이 어우러집니다.",
+      "createdAt": "2025-03-03T21:15:00"
+    },
+    {
+      "id": 12,
+      "movieId": 5,
+      "userId": 4,
+      "rating": 5,
+      "content": "인내와 우정. 모두에게 추천하고 싶은 영화 1순위.",
+      "createdAt": "2025-03-05T12:40:00"
+    },
+    {
+      "id": 13,
+      "movieId": 6,
+      "userId": 1,
+      "rating": 4,
+      "content": "실화라 더 와닿았습니다. 눈물 참기 힘들었어요.",
+      "createdAt": "2025-03-10T14:00:00"
+    },
+    {
+      "id": 14,
+      "movieId": 6,
+      "userId": 3,
+      "rating": 5,
+      "content": "포기하지 않는 아버지의 모습에 큰 감동을 받았습니다.",
+      "createdAt": "2025-03-12T19:25:00"
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "movieId": 5,
+      "type": "like"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "movieId": 1,
+      "type": "like"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "movieId": 5,
+      "type": "like"
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "movieId": 5,
+      "type": "like"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "movieId": 2,
+      "type": "favorite"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "movieId": 3,
+      "type": "favorite"
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "type": "like",
+      "id": 7
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "type": "like",
+      "id": 8
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "type": "like",
+      "id": 9
+    }
+  ]
+}

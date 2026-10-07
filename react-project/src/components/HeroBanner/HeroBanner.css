@@ -1,0 +1,79 @@
+.hero-banner {
+  position: relative;
+
+  height: 420px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* 이미지 의존 제거 — 다크 시네마 액센트 그라데이션 */
+  background:
+    radial-gradient(
+      ellipse at 30% 20%,
+      rgba(214, 40, 40, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 75% 80%,
+      rgba(245, 197, 24, 0.12),
+      transparent 50%
+    ),
+    linear-gradient(135deg, #1a0e0e 0%, #0f0f0f 55%, #141414 100%);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border-radius: 999px;
+
+  background: rgba(214, 40, 40, 0.18);
+
+  color: var(--primary-light);
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+
+  margin-bottom: 18px;
+
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+
+  color: #d0d0d0;
+
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1000px) {
+  .hero-banner {
+    height: 320px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}

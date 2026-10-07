@@ -1,0 +1,203 @@
+/* ReviewCard.css */
+
+/* ==========================================================================
+   Review List Container (스크롤 영역)
+   ========================================================================== */
+
+.reviews-scroller {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 10px;
+  /* 우측 패널(.detail-right-panel)이 단일 스크롤을 담당하므로
+     여기서는 별도 max-height/overflow 없이 자연 흐름. */
+}
+
+.reviews-scroller::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reviews-scroller::-webkit-scrollbar-track {
+  background: #1b1b1b;
+  border-radius: 999px;
+}
+
+.reviews-scroller::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 999px;
+}
+
+.reviews-scroller::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.empty-reviews-placeholder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  border: 2px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Review Card
+   ========================================================================== */
+
+.review-card {
+  background: #262626;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  animation: reviewFade 0.35s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(214, 40, 40, 0.4);
+  background: #2e2e2e;
+}
+
+.review-card + .review-card {
+  margin-top: 2px;
+}
+
+@keyframes reviewFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary), #ff5b5b);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.review-author {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.review-rating {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.review-content {
+  color: #dddddd;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.review-date {
+  color: #8a8a8a;
+  font-size: 0.8rem;
+}
+
+.review-footer {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.review-delete-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.review-delete-btn:hover {
+  color: var(--primary-light);
+  border-color: rgba(214, 40, 40, 0.5);
+  background: rgba(214, 40, 40, 0.1);
+}
+
+.review-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(214, 40, 40, 0.12);
+  color: var(--primary-light);
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+.star {
+  color: var(--gold);
+}
+
+.star.empty {
+  color: #666;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .review-user {
+    width: 100%;
+  }
+
+  .review-rating {
+    margin-left: 54px;
+  }
+
+  .review-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,137 @@
+/* ==========================================================================
+   HOME — 목록 + 컨트롤 바(필터/정렬/좋아요만 보기)
+   ========================================================================== */
+
+.home {
+  width: 100%;
+}
+
+.home main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 컨트롤 바 */
+.list-controls {
+  width: min(1400px, calc(100% - 48px));
+  margin: 0 auto 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  /* 불투명 배경 → 카드가 비쳐 정렬 옵션이 가려 보이는 현상 방지 */
+  background: #1c1c1c;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  position: sticky;
+  top: 84px;
+  z-index: 40;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* 장르 필터 칩 그룹 */
+.genre-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-chip {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.genre-chip:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.genre-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* 오른쪽 컨트롤 (정렬 + 좋아요만) */
+.list-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sort-select {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.sort-select:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--card-hover);
+}
+
+/* 드롭다운 옵션(하얀 배경 대비) */
+.sort-select option {
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.my-likes-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.my-likes-toggle.active {
+  background: rgba(214, 40, 40, 0.12);
+  border-color: rgba(214, 40, 40, 0.5);
+  color: var(--primary-light);
+}
+
+@media (max-width: 1000px) {
+  .list-controls {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    align-items: stretch;
+    top: 76px;
+    padding: 12px;
+  }
+
+  .genre-filters {
+    justify-content: flex-start;
+  }
+
+  .list-controls-right {
+    justify-content: space-between;
+  }
+
+  .sort-select,
+  .my-likes-toggle {
+    flex: 1;
+    justify-content: center;
+  }
+}

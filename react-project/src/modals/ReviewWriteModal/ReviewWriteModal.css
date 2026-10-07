@@ -1,0 +1,23 @@
+/* ReviewWriteModal.css
+   form-* / interactive-control / textarea 는 공용 Form.css(수정 없이 그대로 import).
+   별 모양(.star / .star.empty)은 공용 ReviewCard.css 를 그대로 import.
+   .btn / .btn-secondary 는 글로벌(index.css)에서 단일 관리. */
+
+.rating-input {
+  display: flex;
+  gap: 6px;
+  font-size: 1.8rem;
+}
+
+.rating-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+.rating-star:hover {
+  transform: scale(1.15);
+}

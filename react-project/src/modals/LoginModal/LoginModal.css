@@ -1,0 +1,65 @@
+/* LoginModal.css
+   form-* / interactive-control 은 공용 Form.css.
+   .btn / .btn-secondary / .link-btn 은 글로벌(index.css)에서 단일 관리. */
+
+.login-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-description {
+  margin-bottom: 28px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input-wrapper {
+  position: relative;
+}
+
+.login-input-wrapper .interactive-control {
+  padding-left: 18px;
+}
+
+.login-submit-btn {
+  width: 100%;
+}
+
+/* 모달 하단 회원가입 전환 링크 영역 */
+.login-switch {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.login-message {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.login-error {
+  color: #ff7b7b;
+  font-weight: 600;
+}
+
+.login-success {
+  color: #39d98a;
+  font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+  .login-description {
+    margin-bottom: 22px;
+    font-size: 0.9rem;
+  }
+}
